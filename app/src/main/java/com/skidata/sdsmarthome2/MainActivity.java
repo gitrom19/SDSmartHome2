@@ -23,6 +23,8 @@ import java.net.URLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
+    public String phoneNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        AsyncTask asyncTask = new AsyncTask() {
-            @Override
-            protected Object doInBackground(Object[] params) {
-                getPinCode("666");
-                return null;
-            }
-        }.execute();
+        phoneNumber = "066412345678";
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     public void requestPin(View view) {
         Log.d("MainActivity", "requestPin: Entered");
         Intent rpIntent = new Intent(this, DisplayPinView.class);
-        rpIntent.putExtra(DisplayPinView.PIN_TEXT, "1234");
+        rpIntent.putExtra(DisplayPinView.PHONE_NUMBER, SettingsActivity.phoneNumberSetting);
         startActivity(rpIntent);
     }
 
@@ -83,34 +79,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(settingsIntent);
     }
 
-    private String getPinCode(String phoneNumber) {
-
-        String pinCode = null;
-
-        Log.d("getPinCode", "**********Starting getPinCode*******");
-        URLConnection connection = null;
-        String query = "phoneNumber=" + phoneNumber;
-        try {
-            connection = new URL("http://sd-hackathon.appspot.com/PermissionServlet" + "?" + query).openConnection();
-            connection.setRequestProperty("Accept-Charset", "UTF-8");
-            BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String line;
-            StringBuilder result = new StringBuilder();
-            while ((line = rd.readLine()) != null) {
-                result.append(line);
-            }
-            rd.close();
-            String strResult = result.toString();
-            JSONObject jOb = new JSONObject(strResult);
-            pinCode = jOb.get("pin").toString();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        Log.d("getPinCode", "**********PinCode for number " + phoneNumber + " is " + pinCode);
-        return pinCode;
-    }
 }

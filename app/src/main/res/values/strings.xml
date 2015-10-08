@@ -6,4 +6,5 @@
     <string name="button_ioT">IoT</string>
     <string name="pinLabel">PIN: </string>
     <string name="emptyPin">_ _ _ _</string>
+    <string name="button_setPhoneNumber">Save</string>
 </resources>
