@@ -79,4 +79,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(settingsIntent);
     }
 
+    public void openRoomsView(View view) {
+        Intent openRoomsViewIntent = new Intent(this, Rooms.class);
+        startActivity(openRoomsViewIntent);
+    }
 }

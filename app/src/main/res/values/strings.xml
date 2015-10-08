@@ -7,4 +7,10 @@
     <string name="pinLabel">PIN: </string>
     <string name="emptyPin">_ _ _ _</string>
     <string name="button_setPhoneNumber">Save</string>
+
+    <string-array name="rooms_array">
+        <item>kitchen</item>
+        <item>bedroom</item>
+        <item>bath</item>
+    </string-array>
 </resources>

@@ -44,7 +44,6 @@ public class DisplayPinView extends AppCompatActivity {
             }
         }.execute(phoneNumber);
 
-
     }
 
     public void setPin (String pin) {
