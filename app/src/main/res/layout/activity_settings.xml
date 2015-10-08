@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5A6064"
+    tools:context="com.skidata.sdsmarthome.SettingsActivity">
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText_phone"
+        android:layout_weight="1"
+        android:text="+43 680 12345678"/>
+
+    <Button android:id="@+id/button_requestId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_requestId"
+        android:layout_weight="3"
+        android:background="@null"
+        android:onClick="requestPin"/>
+</LinearLayout>

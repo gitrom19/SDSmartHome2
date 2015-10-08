@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SD SmartHome</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_requestId">Request id</string>
+    <string name="button_doorStatus">Doors</string>
+    <string name="button_ioT">IoT</string>
+    <string name="pinLabel">PIN: </string>
+    <string name="emptyPin">_ _ _ _</string>
+</resources>
