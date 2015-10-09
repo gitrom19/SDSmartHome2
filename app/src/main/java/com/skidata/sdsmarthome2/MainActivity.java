@@ -2,25 +2,13 @@ package com.skidata.sdsmarthome2;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         rpIntent.putExtra(DisplayPinView.PHONE_NUMBER, SettingsActivity.phoneNumberSetting);
 
 
-        GetPin getPin = new GetPin();
+        PinHandler getPin = new PinHandler();
         AlertDialog mDialog = new AlertDialog.Builder(this).setNeutralButton("Ok", null).create();
         mDialog.setTitle("Generated PIN");
 

@@ -16,7 +16,7 @@ import java.net.URLConnection;
 /**
  * Created by joog on 09/10/15.
  */
-public class GetPin{
+public class PinHandler {
 
     String pin;
 
