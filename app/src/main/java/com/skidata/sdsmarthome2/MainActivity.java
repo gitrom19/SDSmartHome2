@@ -86,16 +86,6 @@ public class MainActivity extends AppCompatActivity {
     public void openSettings(MenuItem item) {
         Log.d("MainActivity", "openSettings Entered");
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
-        // 1. Instantiate an AlertDialog.Builder with its constructor
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-// 2. Chain together various setter methods to set the dialog characteristics
-        builder.setMessage("Hello")
-                .setTitle("nice one");
-
-// 3. Get the AlertDialog from create()
-        AlertDialog dialog = builder.create();
-        dialog.show();
         startActivity(settingsIntent);
     }
 
