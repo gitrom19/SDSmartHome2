@@ -36,10 +36,10 @@
     <Button android:id="@+id/button_requestId"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_requestId"
         android:layout_weight="3"
         android:background="@null"
-        android:onClick="requestPin"/>
+        android:onClick="requestPin"
+        android:drawableStart="@drawable/logo"/>
 
     <!--TextView android:text="Hello World!" android:layout_width="wrap_content"
         android:layout_height="wrap_content" /-->

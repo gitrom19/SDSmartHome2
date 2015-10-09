@@ -83,6 +83,14 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(rpIntent);
     }
 
+    public void generateAuth(View view) {
+        Log.d("MainActivity", "generateAuth: Entered");
+        Intent rpIntent = new Intent(this, DisplayAuthGenerator.class);
+        rpIntent.putExtra(DisplayAuthGenerator.PHONE_NUMBER, SettingsActivity.phoneNumberSetting);
+        rpIntent.putExtra(DisplayAuthGenerator.PERMISSION_TYP, SettingsActivity.phoneNumberSetting);
+        startActivity(rpIntent);
+    }
+
     public void openSettings(MenuItem item) {
         Log.d("MainActivity", "openSettings Entered");
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
