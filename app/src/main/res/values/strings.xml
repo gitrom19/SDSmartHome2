@@ -9,8 +9,8 @@
     <string name="button_setPhoneNumber">Save</string>
 
     <string-array name="rooms_array">
-        <item>kitchen</item>
+        <item>bathroom</item>
         <item>bedroom</item>
-        <item>bath</item>
+        <item>kitchen</item>
     </string-array>
 </resources>

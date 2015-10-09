@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 public class Rooms extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -28,6 +29,30 @@ public class Rooms extends AppCompatActivity implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Log.i("Rooms", "onItemsSelected position: " + position + " id: " + id);
+        ImageView image = (ImageView) findViewById(R.id.imageView_rooms);
+        switch (position) {
+            case 0:
+                if (image != null) {
+                    image.setImageResource(R.drawable.bathroom);
+                } else {
+                    Log.e("Rooms", "onItemSelected could not get ImageView resource to display room");
+                }
+                break;
+            case 1:
+                if (image != null) {
+                    image.setImageResource(R.drawable.bedroom);
+                } else {
+                    Log.e("Rooms", "onItemSelected could not get ImageView resource to display room");
+                }
+                break;
+            case 2:
+                if (image != null) {
+                    image.setImageResource(R.drawable.kitchen);
+                } else {
+                    Log.e("Rooms", "onItemSelected could not get ImageView resource to display room");
+                }
+                break;
+        }
 
     }
 
