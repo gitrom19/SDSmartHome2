@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
     public void generateAuth(View view) {
         Log.d("MainActivity", "generateAuth: Entered");
         Intent rpIntent = new Intent(this, DisplayAuthGenerator.class);
-        rpIntent.putExtra(DisplayAuthGenerator.PHONE_NUMBER, SettingsActivity.phoneNumberSetting);
-        rpIntent.putExtra(DisplayAuthGenerator.PERMISSION_TYP, SettingsActivity.phoneNumberSetting);
+     //   rpIntent.putExtra(DisplayAuthGenerator.PHONE_NUMBER, SettingsActivity.phoneNumberSetting);
+     //   rpIntent.putExtra(DisplayAuthGenerator.PERMISSION_TYP, SettingsActivity.phoneNumberSetting);
         startActivity(rpIntent);
     }
 

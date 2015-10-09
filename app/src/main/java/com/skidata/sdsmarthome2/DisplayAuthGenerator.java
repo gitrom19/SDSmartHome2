@@ -6,6 +6,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -20,16 +27,75 @@ import java.net.URLConnection;
 /**
  * Created by hannesgraf on 09.10.15.
  */
-public class DisplayAuthGenerator extends AppCompatActivity {
+public class DisplayAuthGenerator extends AppCompatActivity  {
 
     public final static String PHONE_NUMBER = "com.skidata.sdsmarthome.PHONE_NUMBER";
     public final static String PERMISSION_TYP = "com.skidata.sdsmarthome.PERMISSION_TYP";
+    private String permissionType = "OneTimePermission";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
+        Log.d("generateAuth", "**********Starting*******");
+
+        setContentView(R.layout.activity_display_gernerateauth_view);
+
+        Spinner spinner = (Spinner) findViewById(R.id.permTypeSpinner);
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.auth_array, android.R.layout.simple_spinner_item);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+        Button sendButton = (Button) findViewById(R.id.button_ok);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText eText = (EditText) findViewById(R.id.editText_phoneNumber);
+                Spinner spinner = (Spinner) findViewById(R.id.permTypeSpinner);
+                String phoneNumber = eText.getText().toString();
+                String type = (String)spinner.getSelectedItem();
+                Log.d("phoneNumber", "**********phoneNumber: " + phoneNumber + " type = " + type);
+
+                executeGenerateAuth(phoneNumber, type);
+
+            }
+        });
+
+        //executeGenerateAuth("666", "OneTimePermission");
+
+       /* Intent intent = getIntent();
         String phoneNumber = intent.getStringExtra(PHONE_NUMBER);
         String permissionType = intent.getStringExtra(PERMISSION_TYP);
+
+
+        AsyncTask asyncTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] params) {
+                String phoneNumber = null;
+                String permissionType = null;
+                if (params != null && params.length > 0) {
+                    phoneNumber = (String) params[0];
+                    permissionType = (String) params[1];
+                }
+
+                return generateAuth(phoneNumber, permissionType);
+            }
+
+            @Override
+            protected void onPostExecute (Object result) {
+                setAuthResult((String) result);
+            }
+        }.execute(phoneNumber, permissionType);*/
+    }
+
+    public void executeGenerateAuth(String phoneNumber, String permissionType) {
+        Intent intent = getIntent();
+       // String phoneNumber = intent.getStringExtra(PHONE_NUMBER);
+       // String permissionType = intent.getStringExtra(PERMISSION_TYP);
 
 
         AsyncTask asyncTask = new AsyncTask() {
@@ -60,12 +126,12 @@ public class DisplayAuthGenerator extends AppCompatActivity {
     }
 
     public void setAuthResult (String state) {
-        TextView autGenTextView = (TextView) findViewById(R.id.textView_authGenView);
+       /* TextView autGenTextView = (TextView) findViewById(R.id.textView_authGenView);
         if (autGenTextView != null) {
             autGenTextView.setText(state);
         } else {
             Log.e("setAuthResult", "onCreate Did not get the TextView");
-        }
+        }*/
     }
 
     private String generateAuth(String phoneNumber, String permissionType ) {
@@ -99,5 +165,6 @@ public class DisplayAuthGenerator extends AppCompatActivity {
                 " finished with status: " + resultCode);
         return resultCode;
     }
+
 }
 

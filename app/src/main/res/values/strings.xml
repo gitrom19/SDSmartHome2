@@ -7,12 +7,18 @@
     <string name="pinLabel">PIN: </string>
     <string name="emptyPin">_ _ _ _</string>
     <string name="button_setPhoneNumber">Save</string>
-    <string name="authGenLabel">Auth. generator state: </string>
+    <string name="phone_numberLabel">Phone number: </string>
     <string name="emptyAuthGenState">_ _ _ _</string>
 
     <string-array name="rooms_array">
         <item>bathroom</item>
         <item>bedroom</item>
         <item>kitchen</item>
+    </string-array>
+
+    <string-array name="auth_array">
+        <item>AllTimePermission</item>
+        <item>OneTimePermission</item>
+        <item>TimeBoxedPermission</item>
     </string-array>
 </resources>

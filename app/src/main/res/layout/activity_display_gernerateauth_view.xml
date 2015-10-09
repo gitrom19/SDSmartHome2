@@ -1,24 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.skidata.sdsmarthome.DisplayAuthGenerator"
-    android:background="#5A6064">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:background="#5A6064"
 
-    <TextView
+android:paddingLeft="16dp"
+android:paddingRight="16dp" >
+
+    <LinearLayout
+        android:id="@+id/l1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/authGenLabel"
+        android:background="#5A6064">
+
+
+    <TextView
         android:id="@+id/authGenView"
-        android:layout_gravity="center_horizontal" />
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/emptyAuthGenState"
-        android:id="@+id/textView_authGenView"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/phone_numberLabel"
+        />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/editText_phoneNumber"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_below="@id/l1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#5A6064">
+
+        <TextView
+            android:id="@+id/authType"
+            android:layout_below="@id/authGenView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="AuthType:"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" />
+        <Spinner
+            android:id="@+id/permTypeSpinner"
+            android:layout_alignRight="@id/authType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_below="@id/l2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#5A6064">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send"
+        android:id="@+id/button_ok"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
