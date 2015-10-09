@@ -85,7 +85,7 @@ public class DisplayAuthGenerator extends AppCompatActivity  {
 
         }.execute(phoneNumber, permissionType);
     }
-    
+
 
     private String generateAuth(String phoneNumber, String permissionType ) {
 
