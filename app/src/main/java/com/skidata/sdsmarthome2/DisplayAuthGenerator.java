@@ -65,38 +65,10 @@ public class DisplayAuthGenerator extends AppCompatActivity  {
             }
         });
 
-        //executeGenerateAuth("666", "OneTimePermission");
-
-       /* Intent intent = getIntent();
-        String phoneNumber = intent.getStringExtra(PHONE_NUMBER);
-        String permissionType = intent.getStringExtra(PERMISSION_TYP);
-
-
-        AsyncTask asyncTask = new AsyncTask() {
-            @Override
-            protected Object doInBackground(Object[] params) {
-                String phoneNumber = null;
-                String permissionType = null;
-                if (params != null && params.length > 0) {
-                    phoneNumber = (String) params[0];
-                    permissionType = (String) params[1];
-                }
-
-                return generateAuth(phoneNumber, permissionType);
-            }
-
-            @Override
-            protected void onPostExecute (Object result) {
-                setAuthResult((String) result);
-            }
-        }.execute(phoneNumber, permissionType);*/
     }
 
     public void executeGenerateAuth(String phoneNumber, String permissionType) {
         Intent intent = getIntent();
-       // String phoneNumber = intent.getStringExtra(PHONE_NUMBER);
-       // String permissionType = intent.getStringExtra(PERMISSION_TYP);
-
 
         AsyncTask asyncTask = new AsyncTask() {
             @Override
@@ -111,28 +83,9 @@ public class DisplayAuthGenerator extends AppCompatActivity  {
                 return generateAuth(phoneNumber, permissionType);
             }
 
-            @Override
-            protected void onPostExecute (Object result) {
-                setAuthResult((String) result);
-            }
         }.execute(phoneNumber, permissionType);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    public void setAuthResult (String state) {
-       /* TextView autGenTextView = (TextView) findViewById(R.id.textView_authGenView);
-        if (autGenTextView != null) {
-            autGenTextView.setText(state);
-        } else {
-            Log.e("setAuthResult", "onCreate Did not get the TextView");
-        }*/
-    }
+    
 
     private String generateAuth(String phoneNumber, String permissionType ) {
 
