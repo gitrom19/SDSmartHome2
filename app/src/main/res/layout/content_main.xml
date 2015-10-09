@@ -20,26 +20,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/door1"
-            android:onClick="openRoomsView"/>
+            android:background="@null"
+            android:padding="15dp"/>
 
         <Button android:id="@+id/button_ioT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="15dp"
+            android:onClick="openRoomsView"
             android:drawableTop="@drawable/iot1"/>
 
         <Button android:id="@+id/button_parenting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="15dp"
             android:drawableTop="@drawable/parenting1"/>
     </LinearLayout>
 
     <Button android:id="@+id/button_requestId"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="347dp"
+        android:layout_gravity="center"
         android:background="@null"
         android:onClick="requestPin"
-        android:drawableStart="@drawable/logo"/>
+        android:drawableBottom="@drawable/skidata"
+        android:gravity="center"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        />
 
     <!--TextView android:text="Hello World!" android:layout_width="wrap_content"
         android:layout_height="wrap_content" /-->
