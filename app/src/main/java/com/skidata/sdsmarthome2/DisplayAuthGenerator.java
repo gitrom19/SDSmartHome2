@@ -62,6 +62,9 @@ public class DisplayAuthGenerator extends AppCompatActivity  {
 
                 executeGenerateAuth(phoneNumber, type);
 
+                Intent mainViewIntent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(mainViewIntent);
+
             }
         });
 
