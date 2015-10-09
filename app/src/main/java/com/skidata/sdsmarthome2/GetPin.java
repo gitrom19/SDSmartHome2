@@ -1,11 +1,7 @@
 package com.skidata.sdsmarthome2;
 
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -17,17 +13,14 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class DisplayPinView extends AppCompatActivity {
-    public final static String PHONE_NUMBER = "com.skidata.sdsmarthome.PHONE_NUMBER";
+/**
+ * Created by joog on 09/10/15.
+ */
+public class GetPin{
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_pin_view);
-        Intent intent = getIntent();
-        String phoneNumber = intent.getStringExtra(PHONE_NUMBER);
-        Log.d("DisplayPinView", "onCreate: " + phoneNumber);
+    String pin;
 
+    public void getPin(String phoneNumber){
         AsyncTask asyncTask = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] params) {
@@ -36,33 +29,20 @@ public class DisplayPinView extends AppCompatActivity {
                     phoneNumber = (String) params[0];
                 }
 
-                return getPinCode(phoneNumber);
+                return callUp(phoneNumber);
             }
 
             @Override
             protected void onPostExecute (Object result) {
-                setPin((String)result);
             }
         }.execute(phoneNumber);
     }
 
-    public void setPin (String pin) {
-        TextView pinTextView = (TextView) findViewById(R.id.textView_pin);
-        if (pinTextView != null) {
-            pinTextView.setText(pin);
-        } else {
-            Log.e("DisplayPinView", "onCreate Did not get the TextView");
-        }
+    public String getPin(){
+        return pin;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    public String getPinCode(String phoneNumber) {
+    private String callUp(String phoneNumber) {
 
         String pinCode = null;
 
@@ -90,6 +70,9 @@ public class DisplayPinView extends AppCompatActivity {
         }
 
         Log.d("getPinCode", "**********PinCode for number " + phoneNumber + " is " + pinCode);
+
+        pin = pinCode;
         return pinCode;
     }
+
 }

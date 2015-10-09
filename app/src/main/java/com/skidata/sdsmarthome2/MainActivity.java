@@ -1,5 +1,6 @@
 package com.skidata.sdsmarthome2;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        phoneNumber = "066412345678";
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -70,12 +71,43 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity", "requestPin: Entered");
         Intent rpIntent = new Intent(this, DisplayPinView.class);
         rpIntent.putExtra(DisplayPinView.PHONE_NUMBER, SettingsActivity.phoneNumberSetting);
-        startActivity(rpIntent);
+
+
+        GetPin getPin = new GetPin();
+        AlertDialog mDialog = new AlertDialog.Builder(this).setNeutralButton("Ok", null).create();
+        mDialog.setTitle("Generated PIN");
+
+        getPin.getPin("666");
+
+        while (getPin.getPin() == null) {
+            Log.d("MainActivity", "Still " + getPin.getPin());
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        mDialog.setMessage("Your Pin: " + getPin.getPin());
+        mDialog.show();
+
+        //startActivity(rpIntent);
     }
 
     public void openSettings(MenuItem item) {
         Log.d("MainActivity", "openSettings Entered");
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
+        // 1. Instantiate an AlertDialog.Builder with its constructor
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+// 2. Chain together various setter methods to set the dialog characteristics
+        builder.setMessage("Hello")
+                .setTitle("nice one");
+
+// 3. Get the AlertDialog from create()
+        AlertDialog dialog = builder.create();
+        dialog.show();
         startActivity(settingsIntent);
     }
 
