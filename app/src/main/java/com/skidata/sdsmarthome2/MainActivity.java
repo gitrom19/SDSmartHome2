@@ -101,4 +101,9 @@ public class MainActivity extends AppCompatActivity {
         Intent openRoomsViewIntent = new Intent(this, Rooms.class);
         startActivity(openRoomsViewIntent);
     }
+
+    public void doorOpenView(View view) {
+        Intent doorstatus = new Intent(this, DoorActivity.class);
+        startActivity(doorstatus);
+    }
 }
