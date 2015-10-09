@@ -14,6 +14,8 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        EditText et = (EditText) findViewById(R.id.editText_phone);
+        et.setText(phoneNumberSetting);
     }
 
     public void setPhoneNumber(View view) {

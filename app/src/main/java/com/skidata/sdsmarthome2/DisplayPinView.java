@@ -19,6 +19,7 @@ import java.net.URLConnection;
 
 public class DisplayPinView extends AppCompatActivity {
     public final static String PHONE_NUMBER = "com.skidata.sdsmarthome.PHONE_NUMBER";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,6 @@ public class DisplayPinView extends AppCompatActivity {
                 setPin((String)result);
             }
         }.execute(phoneNumber);
-
     }
 
     public void setPin (String pin) {
