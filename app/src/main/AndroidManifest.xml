@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".DisplayPinView" >
         </activity>
+        <activity android:name=".DisplayAuthGenerator" >
+        </activity>
         <activity android:name=".SettingsActivity" >
         </activity>
         <activity android:name=".Rooms" >
